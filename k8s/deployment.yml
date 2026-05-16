@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: finalproject-deployment
+  namespace: ivolve
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: finalproject
+
+  template:
+    metadata:
+      labels:
+        app: finalproject
+
+    spec:
+      containers:
+        - name: finalproject
+
+          image: 306767070773.dkr.ecr.eu-north-1.amazonaws.com/finalproject:latest
+
+          ports:
+            - containerPort: 5000
